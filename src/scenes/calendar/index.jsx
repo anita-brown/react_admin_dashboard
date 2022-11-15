@@ -69,10 +69,22 @@ const Calendar = () => {
                   ]}
                   
                       headerToolbar={{
-                          left: "prev, next, today",
+                          left: "prev,next today",
                           center: "title",
-                          right: "dayGridMonth, timeGridWeek, timeGridDay, listMonth"
-                  }}
+                          right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth"
+                      }}
+                      initialView="dayGridMonth"
+                      editable={true}
+                      selectable={true}
+                      selectMirror={true}
+                      dayMaxEvents={true}
+                      select={handleDateClick}
+                      eventClick={handleEventClick}
+                      eventsSet={(events) => setCurrentEvents(events)}
+                      initialEvents={[
+                          { id: "1234", title: "All-day event", date: "2022-09-14" },
+                          {id: "4321", title: "Timed event", date:"2022-09-28"}
+                      ]}
                   />
 
               </Box>
